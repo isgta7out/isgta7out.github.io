@@ -112,8 +112,35 @@
     });
   }
 
+  function initViews() {
+    var el = document.getElementById("views-count");
+    if (!el) return;
+    var key = "isgta7out_github_io_views";
+    var seen = false;
+    try {
+      seen = sessionStorage.getItem("gta7-viewed") === "1";
+    } catch (e) {}
+    fetch("https://countapi.mileshilliard.com/api/v1/" + (seen ? "get" : "hit") + "/" + key)
+      .then(function (res) {
+        if (!res.ok) throw new Error("views");
+        return res.json();
+      })
+      .then(function (data) {
+        var n = Number(data.value);
+        if (!isFinite(n)) throw new Error("views");
+        try {
+          sessionStorage.setItem("gta7-viewed", "1");
+        } catch (e) {}
+        el.textContent = n.toLocaleString("en-US");
+      })
+      .catch(function () {
+        el.textContent = "—";
+      });
+  }
+
   tickClock();
   setInterval(tickClock, 1000);
   initWiki();
   initMeme();
+  initViews();
 })();
