@@ -152,36 +152,24 @@ h4 {
   text-underline-offset: 0.18em;
 }
 
-.index time {
-  display: block;
-  margin-top: 0.2rem;
-  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
-  font-size: 0.75rem;
-  color: #a1a1aa;
+.crumb {
+  margin: 0 0 1.25rem;
+  font-size: 0.85rem;
+}
+
+.entry {
+  padding-top: 2.25rem;
 }
 
 .article {
-  display: none;
   margin: 0 0 2.5rem;
-  padding-top: 0.25rem;
 }
 
-.article.is-open {
-  display: block;
-}
-
-.article h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1.45rem;
+.article h1 {
+  margin: 0 0 1rem;
+  font-size: 1.7rem;
   line-height: 1.2;
-}
-
-.article .when {
-  display: block;
-  margin-bottom: 1rem;
-  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
-  font-size: 0.75rem;
-  color: #a1a1aa;
+  text-align: left;
 }
 
 .article p,
@@ -193,7 +181,7 @@ h4 {
   margin: 0 0 0.9rem;
 }
 
-.article h4 {
+.article h2 {
   margin: 1.35rem 0 0.4rem;
   font-size: 1rem;
 }

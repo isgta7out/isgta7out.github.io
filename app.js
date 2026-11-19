@@ -61,37 +61,6 @@
       pad(t.seconds) + " seconds";
   }
 
-  function openArticle(id, scroll) {
-    var articles = document.querySelectorAll(".article");
-    var found = false;
-    for (var i = 0; i < articles.length; i++) {
-      var on = articles[i].id === id;
-      articles[i].classList.toggle("is-open", on);
-      if (on) found = true;
-    }
-    if (found && scroll) {
-      var target = document.getElementById(id);
-      if (target) target.scrollIntoView({ block: "start" });
-    }
-  }
-
-  function idFromHash() {
-    var hash = location.hash.replace(/^#/, "");
-    if (document.getElementById(hash) && document.getElementById(hash).classList.contains("article")) {
-      return hash;
-    }
-    return "";
-  }
-
-  function initWiki() {
-    window.addEventListener("hashchange", function () {
-      var id = idFromHash();
-      if (id) openArticle(id, true);
-    });
-    var initial = idFromHash();
-    if (initial) openArticle(initial, true);
-  }
-
   function initMeme() {
     var input = document.getElementById("meme-input");
     var copyBtn = document.getElementById("meme-copy");
@@ -134,13 +103,12 @@
         el.textContent = n.toLocaleString("en-US");
       })
       .catch(function () {
-        el.textContent = "—";
+        el.textContent = "...";
       });
   }
 
   tickClock();
   setInterval(tickClock, 1000);
-  initWiki();
   initMeme();
   initViews();
 })();
