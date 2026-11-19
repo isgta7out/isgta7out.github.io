@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://isgta7out.github.io/sitemap.xml

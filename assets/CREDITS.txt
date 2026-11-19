@@ -1,0 +1,26 @@
+Local image credits (all compatible with this static GitHub Pages site)
+
+hero-skyline.jpg
+  Source: PxHere photo 1151115 — Miami night skyline / waterfront
+  License: CC0 1.0 Public Domain
+  https://pxhere.com/en/photo/1151115
+
+wiki-neon.jpg
+  Source: PxHere photo 1427493 — Shelborne South Beach hotel at night, Miami Beach
+  License: CC0 1.0 Public Domain
+  https://pxhere.com/en/photo/1427493
+
+wiki-palms.jpg
+  Source: Pexels — “Vibrant Miami Beachfront Hotels at Dusk” (Ocean Drive, palm trees)
+  License: Pexels License (free for commercial use, no attribution required)
+  https://www.pexels.com/photo/vibrant-miami-beachfront-hotels-at-dusk-37680039/
+
+miami-dusk.jpg
+  Source: Unsplash — Downtown Miami skyline at dusk (photo 0oWsCPUFLuQ / Hector Falcon)
+  License: Unsplash License
+  https://unsplash.com/photos/cityscape-at-nighttime-0oWsCPUFLuQ
+
+favicon.svg, og-image.svg, og-image.png, apple-touch-icon.png, favicon-32.png
+  Original graphics created for isgta7out.github.io
+
+This site is unofficial and is not affiliated with Rockstar Games, Take-Two Interactive, or Grand Theft Auto.

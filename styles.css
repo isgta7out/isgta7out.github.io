@@ -1,0 +1,246 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+a {
+  color: #0000ee;
+}
+
+a:visited {
+  color: #0000ee;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Times New Roman", Georgia, serif;
+  font-weight: 700;
+  color: #000000;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip:focus {
+  left: 8px;
+  top: 8px;
+  z-index: 1;
+  background: #ffffff;
+  color: #0000ee;
+}
+
+.no {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: clamp(7rem, 25vw, 20rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 5.5rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.clock {
+  font-family: monospace;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.clock-value {
+  margin: 0.35rem 0 2.5rem;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+.page h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.page > p {
+  margin: 0 0 1.5rem;
+}
+
+.index {
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 0;
+}
+
+.index li {
+  margin: 0;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.index a {
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.index time {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #000000;
+}
+
+.article {
+  display: none;
+  margin: 0 0 2.75rem;
+  padding-top: 0.25rem;
+}
+
+.article.is-open {
+  display: block;
+}
+
+.article h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.article .when {
+  display: block;
+  margin-bottom: 1.1rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.article p,
+.article li {
+  color: #000000;
+}
+
+.article p {
+  margin: 0 0 0.9rem;
+}
+
+.article h4 {
+  margin: 1.35rem 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.article ul,
+.article ol {
+  margin: 0 0 0.9rem;
+  padding-left: 1.25rem;
+}
+
+.article li + li {
+  margin-top: 0.3rem;
+}
+
+.article blockquote {
+  margin: 1rem 0;
+  padding: 0 0 0 1rem;
+  border-left: 1px solid #000000;
+  font-style: italic;
+}
+
+.article .cite {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+.article .back {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.timeline li {
+  margin: 0 0 0.65rem;
+  padding: 0;
+}
+
+.timeline time {
+  display: block;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.compose label,
+.compose p {
+  font-size: 0.95rem;
+}
+
+.compose input {
+  font: inherit;
+  font-family: monospace;
+  width: 100%;
+  max-width: 100%;
+  margin: 0.35rem 0 0.75rem;
+  padding: 0.2rem 0;
+  border: 0;
+  border-bottom: 1px solid #000000;
+  background: #ffffff;
+  color: #000000;
+}
+
+.compose button {
+  font: inherit;
+  font-family: monospace;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #0000ee;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.compose .status {
+  min-height: 1.2em;
+  margin: 0.5rem 0 0;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e5e5e5;
+  font-size: 0.85rem;
+}
+
+.site-footer p {
+  margin: 0 0 0.6rem;
+}

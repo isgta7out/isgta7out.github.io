@@ -1,0 +1,119 @@
+(function () {
+  "use strict";
+
+  var GTA6_LAUNCH = Date.UTC(2026, 10, 19, 0, 0, 0);
+
+  function pad(n) {
+    return String(n).padStart(2, "0");
+  }
+
+  function sinceLaunch(nowMs) {
+    var start = new Date(GTA6_LAUNCH);
+    var end = new Date(nowMs);
+
+    if (end.getTime() < start.getTime()) {
+      return { years: 0, days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+
+    var years = end.getUTCFullYear() - start.getUTCFullYear();
+    var anniversary = Date.UTC(
+      start.getUTCFullYear() + years,
+      start.getUTCMonth(),
+      start.getUTCDate(),
+      start.getUTCHours(),
+      start.getUTCMinutes(),
+      start.getUTCSeconds()
+    );
+
+    if (anniversary > end.getTime()) {
+      years -= 1;
+      anniversary = Date.UTC(
+        start.getUTCFullYear() + years,
+        start.getUTCMonth(),
+        start.getUTCDate(),
+        start.getUTCHours(),
+        start.getUTCMinutes(),
+        start.getUTCSeconds()
+      );
+    }
+
+    var rem = end.getTime() - anniversary;
+    var days = Math.floor(rem / 86400000);
+    rem -= days * 86400000;
+    var hours = Math.floor(rem / 3600000);
+    rem -= hours * 3600000;
+    var minutes = Math.floor(rem / 60000);
+    rem -= minutes * 60000;
+    var seconds = Math.floor(rem / 1000);
+
+    return { years: years, days: days, hours: hours, minutes: minutes, seconds: seconds };
+  }
+
+  function tickClock() {
+    var el = document.getElementById("clock");
+    if (!el) return;
+    var t = sinceLaunch(Date.now());
+    el.textContent =
+      t.years + " years, " +
+      t.days + " days, " +
+      pad(t.hours) + " hours, " +
+      pad(t.minutes) + " minutes, " +
+      pad(t.seconds) + " seconds";
+  }
+
+  function openArticle(id, scroll) {
+    var articles = document.querySelectorAll(".article");
+    var found = false;
+    for (var i = 0; i < articles.length; i++) {
+      var on = articles[i].id === id;
+      articles[i].classList.toggle("is-open", on);
+      if (on) found = true;
+    }
+    if (found && scroll) {
+      var target = document.getElementById(id);
+      if (target) target.scrollIntoView({ block: "start" });
+    }
+  }
+
+  function idFromHash() {
+    var hash = location.hash.replace(/^#/, "");
+    if (document.getElementById(hash) && document.getElementById(hash).classList.contains("article")) {
+      return hash;
+    }
+    return "";
+  }
+
+  function initWiki() {
+    window.addEventListener("hashchange", function () {
+      var id = idFromHash();
+      if (id) openArticle(id, true);
+    });
+    var initial = idFromHash();
+    if (initial) openArticle(initial, true);
+  }
+
+  function initMeme() {
+    var input = document.getElementById("meme-input");
+    var copyBtn = document.getElementById("meme-copy");
+    var status = document.getElementById("meme-status");
+    if (!copyBtn) return;
+
+    copyBtn.addEventListener("click", function () {
+      var x = (input && input.value.trim()) || "isgta7out.github.io";
+      var text = "We got " + x + " before GTA 7";
+      function done() {
+        if (status) status.textContent = "Copied.";
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else {
+        done();
+      }
+    });
+  }
+
+  tickClock();
+  setInterval(tickClock, 1000);
+  initWiki();
+  initMeme();
+})();
